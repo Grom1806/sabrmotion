@@ -1,8 +1,6 @@
 import Groq from 'groq-sdk'
 import { NextRequest } from 'next/server'
 
-const client = new Groq({ apiKey: process.env.GROQ_API_KEY })
-
 const SYSTEM_PROMPT = `You are SabrBot — a helpful assistant for Sabrmotion, a professional development studio.
 
 ## About Sabrmotion
@@ -67,6 +65,17 @@ const SYSTEM_PROMPT = `You are SabrBot — a helpful assistant for Sabrmotion, a
   💬 Напишите в @sabrmot1on — обсудим детали!`
 
 export async function POST(req: NextRequest) {
+  const apiKey = process.env.GROQ_API_KEY
+  if (!apiKey) {
+    return new Response(
+      '⚠️ Бот временно недоступен. Напишите напрямую: @sabrmot1on',
+      { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } },
+    )
+  }
+
+  // Instantiate lazily inside the handler so `next build` never needs the key.
+  const client = new Groq({ apiKey })
+
   const { messages } = await req.json() as {
     messages: { role: 'user' | 'assistant'; content: string }[]
   }
