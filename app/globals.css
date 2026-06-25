@@ -266,6 +266,19 @@ body > * {
   }
 }
 
+/* Project detail page: content + sticky meta sidebar */
+.project-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+@media (min-width: 900px) {
+  .project-detail-grid {
+    grid-template-columns: 1fr 320px;
+    gap: 4rem;
+  }
+}
+
 /* Project card media — screenshot cover with hover zoom (transition on base) */
 .project-media {
   position: relative;

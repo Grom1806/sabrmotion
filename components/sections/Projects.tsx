@@ -1,48 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-type Project = {
-  num: string;
-  title: string;
-  description: string;
-  tags: string[];
-  image: string;
-  live: string;
-  code?: string;
-};
-
-const projects: Project[] = [
-  {
-    num: "01",
-    title: "HALCYON",
-    description:
-      "Awwwards-style 3D landing. A procedural Three.js crystal assembles from an exploded cloud as you scroll — scrubbed, reversible, ~60fps.",
-    tags: ["Three.js", "GSAP", "TypeScript", "WebGL"],
-    image: "/projects/halcyon.webp",
-    live: "https://helycon.vercel.app/",
-    code: "https://github.com/Grom1806/helycon",
-  },
-  {
-    num: "02",
-    title: "Vantage — SaaS Analytics",
-    description:
-      "Analytics dashboard for revenue, active users, conversion and churn — with filters, exports and AI explanations.",
-    tags: ["Next.js", "Prisma", "Charts", "Auth"],
-    image: "/projects/vantage.webp",
-    live: "https://saas-dashboard-nine-tau.vercel.app/",
-    code: "https://github.com/Grom1806/Saas-Dashboard",
-  },
-  {
-    num: "03",
-    title: "React Pizza",
-    description:
-      "Pizza ordering store with category filters, sorting, live search, a cart and crust/size options — built on Redux Toolkit.",
-    tags: ["React", "Redux Toolkit", "REST", "SCSS"],
-    image: "/projects/pizza.webp",
-    live: "https://react-pizza-v2-rust.vercel.app/",
-  },
-];
+import Link from "next/link";
+import { projects } from "@/lib/projects";
 
 export default function Projects() {
   return (
@@ -87,8 +47,7 @@ export default function Projects() {
                 lineHeight: 1.1,
               }}
             >
-              VIEW MY{" "}
-              <span style={{ color: "var(--accent)" }}>PROJECTS</span>
+              VIEW MY <span style={{ color: "var(--accent)" }}>PROJECTS</span>
             </motion.h2>
           </div>
 
@@ -107,136 +66,120 @@ export default function Projects() {
           </motion.a>
         </div>
 
-        {/* Grid */}
-        <div
-          style={{ display: "grid", gap: "1.25rem" }}
-          className="projects-grid"
-        >
+        {/* Grid — each card is one link to its project page */}
+        <div style={{ display: "grid", gap: "1.25rem" }} className="projects-grid">
           {projects.map((project, i) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: i * 0.09 }}
-              className="dark-card"
-              style={{
-                padding: "1rem",
-                display: "flex",
-                flexDirection: "column",
-                gap: "1.25rem",
-              }}
+            <Link
+              key={project.slug}
+              href={`/projects/${project.slug}`}
+              style={{ textDecoration: "none", display: "block" }}
+              aria-label={`View the ${project.title} case study`}
             >
-              {/* Screenshot */}
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-media"
-                aria-label={`Open ${project.title} live`}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.09 }}
+                className="dark-card"
+                style={{
+                  padding: "1rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "1.25rem",
+                  height: "100%",
+                  cursor: "pointer",
+                }}
               >
-                <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" />
-              </a>
+                {/* Screenshot */}
+                <div className="project-media">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    loading="lazy"
+                  />
+                </div>
 
-              {/* Info */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", padding: "0 0.5rem 0.5rem" }}>
+                {/* Info */}
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "baseline",
-                    justifyContent: "space-between",
+                    flexDirection: "column",
                     gap: "0.75rem",
+                    padding: "0 0.5rem 0.5rem",
+                    flex: 1,
                   }}
                 >
-                  <span
+                  <div
                     style={{
-                      fontFamily: "var(--font-syne)",
-                      fontWeight: 700,
-                      fontSize: "1.05rem",
-                      color: "var(--text)",
+                      display: "flex",
+                      alignItems: "baseline",
+                      justifyContent: "space-between",
+                      gap: "0.75rem",
                     }}
                   >
-                    {project.title}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-jetbrains)",
-                      fontSize: "0.7rem",
-                      color: "var(--accent)",
-                      letterSpacing: "0.1em",
-                    }}
-                  >
-                    {project.num}
-                  </span>
-                </div>
-
-                <p
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "0.85rem",
-                    color: "var(--muted)",
-                    lineHeight: 1.6,
-                    minHeight: "4.1em",
-                  }}
-                >
-                  {project.description}
-                </p>
-
-                <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="tag-dark">
-                      {tag}
+                    <span
+                      style={{
+                        fontFamily: "var(--font-syne)",
+                        fontWeight: 700,
+                        fontSize: "1.05rem",
+                        color: "var(--text)",
+                      }}
+                    >
+                      {project.title}
                     </span>
-                  ))}
-                </div>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-jetbrains)",
+                        fontSize: "0.7rem",
+                        color: "var(--accent)",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      {project.num}
+                    </span>
+                  </div>
 
-                {/* Links */}
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "1.25rem",
-                    marginTop: "0.5rem",
-                    paddingTop: "0.85rem",
-                    borderTop: "1px solid var(--border)",
-                  }}
-                >
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <p
                     style={{
+                      fontFamily: "var(--font-inter)",
+                      fontSize: "0.85rem",
+                      color: "var(--muted)",
+                      lineHeight: 1.6,
+                      minHeight: "4.1em",
+                    }}
+                  >
+                    {project.description}
+                  </p>
+
+                  <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="tag-dark">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Footer affordance */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      marginTop: "auto",
+                      paddingTop: "0.85rem",
+                      borderTop: "1px solid var(--border)",
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.82rem",
                       fontWeight: 600,
                       color: "var(--accent)",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "0.3rem",
                     }}
                   >
-                    Live ↗
-                  </a>
-                  {project.code && (
-                    <a
-                      href={project.code}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        fontFamily: "var(--font-inter)",
-                        fontSize: "0.82rem",
-                        fontWeight: 600,
-                        color: "var(--muted)",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "0.3rem",
-                      }}
-                    >
-                      Code ↗
-                    </a>
-                  )}
+                    <span>View project</span>
+                    <span>→</span>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
