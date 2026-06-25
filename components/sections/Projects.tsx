@@ -2,30 +2,45 @@
 
 import { motion } from "framer-motion";
 
-const projects = [
+type Project = {
+  num: string;
+  title: string;
+  description: string;
+  tags: string[];
+  image: string;
+  live: string;
+  code?: string;
+};
+
+const projects: Project[] = [
   {
     num: "01",
-    title: "Project Title",
-    tags: ["Web Design", "Development"],
-    color: "rgba(74,222,128,0.08)",
+    title: "HALCYON",
+    description:
+      "Awwwards-style 3D landing. A procedural Three.js crystal assembles from an exploded cloud as you scroll — scrubbed, reversible, ~60fps.",
+    tags: ["Three.js", "GSAP", "TypeScript", "WebGL"],
+    image: "/projects/halcyon.webp",
+    live: "https://helycon.vercel.app/",
+    code: "https://github.com/Grom1806/helycon",
   },
   {
     num: "02",
-    title: "Project Title",
-    tags: ["Brand Identity", "UI/UX"],
-    color: "rgba(250,204,21,0.08)",
+    title: "Vantage — SaaS Analytics",
+    description:
+      "Analytics dashboard for revenue, active users, conversion and churn — with filters, exports and AI explanations.",
+    tags: ["Next.js", "Prisma", "Charts", "Auth"],
+    image: "/projects/vantage.webp",
+    live: "https://saas-dashboard-nine-tau.vercel.app/",
+    code: "https://github.com/Grom1806/Saas-Dashboard",
   },
   {
     num: "03",
-    title: "Project Title",
-    tags: ["Mobile App", "React Native"],
-    color: "rgba(96,165,250,0.08)",
-  },
-  {
-    num: "04",
-    title: "Project Title",
-    tags: ["E-Commerce", "Next.js"],
-    color: "rgba(244,114,182,0.08)",
+    title: "React Pizza",
+    description:
+      "Pizza ordering store with category filters, sorting, live search, a cart and crust/size options — built on Redux Toolkit.",
+    tags: ["React", "Redux Toolkit", "REST", "SCSS"],
+    image: "/projects/pizza.webp",
+    live: "https://react-pizza-v2-rust.vercel.app/",
   },
 ];
 
@@ -78,7 +93,9 @@ export default function Projects() {
           </div>
 
           <motion.a
-            href="#contact"
+            href="https://github.com/Grom1806"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -86,120 +103,142 @@ export default function Projects() {
             className="btn-outline"
             style={{ fontSize: "0.8rem", padding: "0.6rem 1.5rem" }}
           >
-            All Projects →
+            All on GitHub →
           </motion.a>
         </div>
 
         {/* Grid */}
         <div
-          style={{
-            display: "grid",
-            gap: "1.25rem",
-          }}
+          style={{ display: "grid", gap: "1.25rem" }}
           className="projects-grid"
         >
           {projects.map((project, i) => (
             <motion.div
-              key={i}
+              key={project.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.09 }}
-              whileHover={{ scale: 1.02, zIndex: 2, transition: { duration: 0.22 } }}
               className="dark-card"
-              style={{ padding: "2rem", cursor: "pointer", minHeight: "260px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}
+              style={{
+                padding: "1rem",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.25rem",
+              }}
             >
-              {/* Preview area */}
-              <div
-                style={{
-                  flex: 1,
-                  borderRadius: "0.75rem",
-                  background: project.color,
-                  border: "1px solid var(--border)",
-                  marginBottom: "1.5rem",
-                  minHeight: "140px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  position: "relative",
-                  overflow: "hidden",
-                }}
+              {/* Screenshot */}
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-media"
+                aria-label={`Open ${project.title} live`}
               >
-                {/* Shimmer */}
-                <motion.div
-                  animate={{ x: ["-120%", "220%"] }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    width: "40%",
-                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent)",
-                  }}
-                />
-                <span
-                  style={{
-                    fontFamily: "var(--font-jetbrains)",
-                    fontSize: "0.6rem",
-                    letterSpacing: "0.2em",
-                    textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.2)",
-                  }}
-                >
-                  Project Preview
-                </span>
-              </div>
+                <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" />
+              </a>
 
               {/* Info */}
-              <div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", padding: "0 0.5rem 0.5rem" }}>
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "center",
+                    alignItems: "baseline",
                     justifyContent: "space-between",
-                    marginBottom: "0.75rem",
+                    gap: "0.75rem",
                   }}
                 >
                   <span
                     style={{
                       fontFamily: "var(--font-syne)",
                       fontWeight: 700,
-                      fontSize: "1.125rem",
+                      fontSize: "1.05rem",
                       color: "var(--text)",
                     }}
                   >
                     {project.title}
                   </span>
-                  <span style={{ color: "var(--muted)", fontSize: "1.1rem" }}>→</span>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-jetbrains)",
+                      fontSize: "0.7rem",
+                      color: "var(--accent)",
+                      letterSpacing: "0.1em",
+                    }}
+                  >
+                    {project.num}
+                  </span>
                 </div>
-                <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+
+                <p
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontSize: "0.85rem",
+                    color: "var(--muted)",
+                    lineHeight: 1.6,
+                    minHeight: "4.1em",
+                  }}
+                >
+                  {project.description}
+                </p>
+
+                <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
                   {project.tags.map((tag) => (
                     <span key={tag} className="tag-dark">
                       {tag}
                     </span>
                   ))}
                 </div>
+
+                {/* Links */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "1.25rem",
+                    marginTop: "0.5rem",
+                    paddingTop: "0.85rem",
+                    borderTop: "1px solid var(--border)",
+                  }}
+                >
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontSize: "0.82rem",
+                      fontWeight: 600,
+                      color: "var(--accent)",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.3rem",
+                    }}
+                  >
+                    Live ↗
+                  </a>
+                  {project.code && (
+                    <a
+                      href={project.code}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        fontFamily: "var(--font-inter)",
+                        fontSize: "0.82rem",
+                        fontWeight: 600,
+                        color: "var(--muted)",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.3rem",
+                      }}
+                    >
+                      Code ↗
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Coming soon note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          style={{
-            fontFamily: "var(--font-jetbrains)",
-            fontSize: "0.7rem",
-            color: "rgba(74,222,128,0.3)",
-            letterSpacing: "0.15em",
-            textAlign: "center",
-            marginTop: "2rem",
-          }}
-        >
-          {`// Real projects coming soon — placeholder grid above`}
-        </motion.p>
       </div>
     </section>
   );
