@@ -103,6 +103,34 @@ export const projects: Project[] = [
     ],
     stack: ["React", "Redux Toolkit", "React Router", "Axios", "SCSS Modules"],
   },
+  {
+    slug: "medclinic",
+    num: "04",
+    title: "AURA — Medical Clinic",
+    description:
+      "A polished medical-clinic site with online appointment booking, doctor profiles, services and reviews — RU / EN / DE, light/dark theme, animated with Framer Motion.",
+    tagline:
+      "A modern medical-clinic experience — online booking, doctor profiles and services wrapped in a calm dark UI with smooth motion.",
+    year: "2026",
+    role: "Design & Build",
+    tags: ["React", "TypeScript", "Vite", "Framer Motion"],
+    image: "/projects/medclinic.webp",
+    gallery: ["/projects/medclinic.webp"],
+    live: "https://medclinic-one.vercel.app",
+    code: "https://github.com/Grom1806/medclinic",
+    overview: [
+      "AURA is a marketing site for a modern medical clinic. It covers the full patient journey — browsing services and doctors, reading reviews, checking prices and booking an appointment online — across a multi-page React Router SPA with RU / EN / DE language switching.",
+      "The interface leans on a calm dark palette with a teal accent: animated section reveals, count-up statistics, a light/dark theme toggle and dedicated detail pages for individual doctors. Every screen stays responsive down to mobile.",
+    ],
+    highlights: [
+      "Online appointment booking flow (service → doctor → date & time)",
+      "Doctor directory with individual profile pages",
+      "Services, advantages, animated stat counters, reviews and FAQ",
+      "RU / EN / DE language switch and light/dark theme toggle",
+      "Framer Motion reveals throughout; responsive down to ~360px",
+    ],
+    stack: ["Vite", "React", "TypeScript", "React Router", "Framer Motion", "CSS Modules"],
+  },
 ];
 
 export const getProject = (slug: string) =>

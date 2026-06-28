@@ -185,7 +185,7 @@ const de: Dict = {
     eyebrow: "Über Sabrmotion",
     headline: "Für Ergebnisse entwickelt — nicht nur für Optik",
     p1: "Sabrmotion steht für schlüsselfertige Webentwicklung mit Fokus auf messbare Resultate. Ich entwickle Telegram-Bots, Websites und Widget-Bots, die Leads generieren und Verkäufe abschließen.",
-    p2: "KI setze ich aktiv als Entwicklungswerkzeug ein — das beschleunigt die Lieferung, hilft schneller bessere Lösungen zu finden und erhöht die Qualität bei kürzeren Laufzeiten. Wo es Ihrem Unternehmen echten Mehrwert bringt, integriere ich KI direkt in das Produkt: intelligente Chatbots, die Ihre Kunden verstehen und zielgerichtet antworten.",
+    p2: "KI setze ich aktiv als Entwicklungswerkzeug ein — das beschleunigt die Lieferung, hilft, schneller bessere Lösungen zu finden, und erhöht die Qualität bei kürzeren Laufzeiten. Wo es Ihrem Unternehmen echten Mehrwert bringt, integriere ich KI direkt in das Produkt: intelligente Chatbots, die Ihre Kunden verstehen und zielgerichtet antworten.",
     p3: "Über 3 Jahre praktische Entwicklungserfahrung. Sie arbeiten direkt mit der Person zusammen, die Ihren Code schreibt — keine Account Manager, keine Mittelsmänner. Websites von Grund auf, Bots in Node.js — maximale Flexibilität für CRM, Zahlungsabwicklung, Newsletter und externe APIs.",
     cta: "Kontakt aufnehmen →",
     stats: {
@@ -194,7 +194,7 @@ const de: Dict = {
       satisfaction: { num: "100%", label: "Kundenzufriedenheit" },
     },
     int_eyebrow: "Was ich integrieren kann",
-    int_headline: "Gebaut, um mit Ihrem Unternehmen zu verbinden",
+    int_headline: "Bereit für jede Integration in Ihr Unternehmen",
     integrations: [
       { label: "KI & Automatisierung", desc: "Intelligente Bots und automatisierte Kundenkommunikation auf Basis aktueller Sprachmodelle." },
       { label: "CRM-Systeme", desc: "amoCRM, Bitrix24 und Äquivalente — Anfragen landen direkt in Ihrer Vertriebspipeline." },
@@ -225,14 +225,14 @@ const de: Dict = {
     ],
   },
   statement: {
-    before: "Sabrmotions Ziel ist es nicht, etwas einfach zu 'bauen', sondern ein Werkzeug zu schaffen, das in Ihr Unternehmen integriert wird und für ",
+    before: "Sabrmotions Ziel ist es nicht, einfach nur etwas zu 'bauen', sondern ein Werkzeug zu schaffen, das in Ihr Unternehmen integriert wird und für ",
     hl1: "echte Umsätze",
     mid: " arbeitet —",
     hl2: " zugeschnitten auf Ihre Ziele.",
   },
   contact: {
     eyebrow: "Kontakt",
-    headline: "Brauchen Sie einen Bot, eine Website oder einen Widget, der wirklich verkauft?",
+    headline: "Brauchen Sie einen Bot, eine Website oder ein Widget, das wirklich verkauft?",
     description: "Schreiben Sie mir auf Telegram oder hinterlassen Sie eine Anfrage — wir besprechen Ihre Aufgabe und ich schlage die passende Lösung vor.",
     telegram: "Auf Telegram schreiben",
     request: "Anfrage senden",
