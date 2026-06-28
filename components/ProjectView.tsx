@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import type { Project } from "@/lib/projects";
+import { getProject } from "@/lib/projects";
+import { useLanguage } from "@/lib/LanguageContext";
 import CustomCursor from "@/components/CustomCursor";
 import BackToTop from "@/components/BackToTop";
 
@@ -13,12 +14,15 @@ const fadeUp = {
 };
 
 export default function ProjectView({
-  project,
-  next,
+  slug,
+  nextSlug,
 }: {
-  project: Project;
-  next: { slug: string; title: string };
+  slug: string;
+  nextSlug: string;
 }) {
+  const { lang, t } = useLanguage();
+  const project = getProject(slug, lang)!;
+  const next = getProject(nextSlug, lang)!;
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
       <CustomCursor />
@@ -76,7 +80,7 @@ export default function ProjectView({
               color: "var(--muted)",
             }}
           >
-            ← All projects
+            {t.projects.all_projects}
           </Link>
         </div>
       </header>
@@ -140,7 +144,7 @@ export default function ProjectView({
             className="btn-primary"
             style={{ fontSize: "0.85rem", padding: "0.6rem 1.5rem" }}
           >
-            Visit live ↗
+            {t.projects.visit_live}
           </a>
           {project.code && (
             <a
@@ -150,7 +154,7 @@ export default function ProjectView({
               className="btn-outline"
               style={{ fontSize: "0.85rem", padding: "0.6rem 1.5rem" }}
             >
-              View code ↗
+              {t.projects.view_code}
             </a>
           )}
         </motion.div>
@@ -179,7 +183,7 @@ export default function ProjectView({
         <div className="project-detail-grid" style={{ marginTop: "4rem" }}>
           <div>
             <motion.h2 {...fadeUp} transition={{ duration: 0.5 }} style={sectionHeading}>
-              Overview
+              {t.projects.overview}
             </motion.h2>
             {project.overview.map((p, i) => (
               <motion.p
@@ -200,7 +204,7 @@ export default function ProjectView({
             ))}
 
             <motion.h2 {...fadeUp} transition={{ duration: 0.5 }} style={{ ...sectionHeading, marginTop: "2.5rem" }}>
-              Highlights
+              {t.projects.highlights}
             </motion.h2>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.85rem" }}>
               {project.highlights.map((h, i) => (
@@ -231,7 +235,7 @@ export default function ProjectView({
               className="dark-card"
               style={{ padding: "1.75rem", position: "sticky", top: "88px" }}
             >
-              <p style={metaLabel}>Built with</p>
+              <p style={metaLabel}>{t.projects.built_with}</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.45rem", marginBottom: "1.5rem" }}>
                 {project.stack.map((s) => (
                   <span key={s} className="tag-dark">
@@ -239,9 +243,9 @@ export default function ProjectView({
                   </span>
                 ))}
               </div>
-              <p style={metaLabel}>Role</p>
+              <p style={metaLabel}>{t.projects.role}</p>
               <p style={metaValue}>{project.role}</p>
-              <p style={{ ...metaLabel, marginTop: "1rem" }}>Year</p>
+              <p style={{ ...metaLabel, marginTop: "1rem" }}>{t.projects.year}</p>
               <p style={metaValue}>{project.year}</p>
               <a
                 href={project.live}
@@ -250,7 +254,7 @@ export default function ProjectView({
                 className="btn-primary"
                 style={{ width: "100%", justifyContent: "center", marginTop: "1.5rem", fontSize: "0.85rem" }}
               >
-                Open live site ↗
+                {t.projects.open_live}
               </a>
             </div>
           </motion.aside>
@@ -293,7 +297,7 @@ export default function ProjectView({
           }}
         >
           <Link href="/#projects" style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "var(--muted)" }}>
-            ← Back to all projects
+            {t.projects.back_to_projects}
           </Link>
           <Link
             href={`/projects/${next.slug}`}
@@ -307,7 +311,7 @@ export default function ProjectView({
               gap: "0.5rem",
             }}
           >
-            Next: {next.title}{" "}
+            {t.projects.next} {next.title}{" "}
             <span style={{ color: "var(--accent)" }}>→</span>
           </Link>
         </motion.div>

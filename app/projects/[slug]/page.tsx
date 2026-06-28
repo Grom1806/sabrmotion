@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { projects, getProject } from "@/lib/projects";
+import { projectSlugs, getProject } from "@/lib/projects";
 import ProjectView from "@/components/ProjectView";
 
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  return projectSlugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -27,13 +27,10 @@ export default async function ProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = getProject(slug);
-  if (!project) notFound();
+  if (!getProject(slug)) notFound();
 
-  const idx = projects.findIndex((p) => p.slug === slug);
-  const next = projects[(idx + 1) % projects.length];
+  const idx = projectSlugs.indexOf(slug);
+  const nextSlug = projectSlugs[(idx + 1) % projectSlugs.length];
 
-  return (
-    <ProjectView project={project} next={{ slug: next.slug, title: next.title }} />
-  );
+  return <ProjectView slug={slug} nextSlug={nextSlug} />;
 }

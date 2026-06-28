@@ -14,6 +14,11 @@ export type Dict = {
   statement: { before: string; hl1: string; mid: string; hl2: string };
   contact: { eyebrow: string; headline: string; description: string; telegram: string; request: string };
   footer: { tagline: string; nav_label: string; services_label: string; contact_label: string; copyright: string; built_with: string };
+  projects: {
+    eyebrow: string; headline1: string; headline2: string; all_github: string; view_project: string;
+    all_projects: string; visit_live: string; view_code: string; overview: string; highlights: string;
+    built_with: string; role: string; year: string; open_live: string; back_to_projects: string; next: string;
+  };
 };
 
 const ru: Dict = {
@@ -90,6 +95,24 @@ const ru: Dict = {
     contact_label: "Контакты",
     copyright: "© 2026 Sabrmotion. Все права защищены.",
     built_with: "Разработано с точностью",
+  },
+  projects: {
+    eyebrow: "Портфолио",
+    headline1: "МОИ",
+    headline2: "ПРОЕКТЫ",
+    all_github: "Всё на GitHub →",
+    view_project: "Открыть проект",
+    all_projects: "← Все проекты",
+    visit_live: "Открыть сайт ↗",
+    view_code: "Смотреть код ↗",
+    overview: "Обзор",
+    highlights: "Ключевые особенности",
+    built_with: "Технологии",
+    role: "Роль",
+    year: "Год",
+    open_live: "Открыть сайт ↗",
+    back_to_projects: "← Назад ко всем проектам",
+    next: "Далее:",
   },
 };
 
@@ -168,6 +191,24 @@ const en: Dict = {
     copyright: "© 2026 Sabrmotion. All rights reserved.",
     built_with: "Built with Precision",
   },
+  projects: {
+    eyebrow: "Portfolio",
+    headline1: "VIEW MY",
+    headline2: "PROJECTS",
+    all_github: "All on GitHub →",
+    view_project: "View project",
+    all_projects: "← All projects",
+    visit_live: "Visit live ↗",
+    view_code: "View code ↗",
+    overview: "Overview",
+    highlights: "Highlights",
+    built_with: "Built with",
+    role: "Role",
+    year: "Year",
+    open_live: "Open live site ↗",
+    back_to_projects: "← Back to all projects",
+    next: "Next:",
+  },
 };
 
 const de: Dict = {
@@ -244,6 +285,24 @@ const de: Dict = {
     contact_label: "Kontakt",
     copyright: "© 2026 Sabrmotion. Alle Rechte vorbehalten.",
     built_with: "Mit Präzision entwickelt",
+  },
+  projects: {
+    eyebrow: "Portfolio",
+    headline1: "MEINE",
+    headline2: "PROJEKTE",
+    all_github: "Alles auf GitHub →",
+    view_project: "Projekt ansehen",
+    all_projects: "← Alle Projekte",
+    visit_live: "Live ansehen ↗",
+    view_code: "Code ansehen ↗",
+    overview: "Überblick",
+    highlights: "Highlights",
+    built_with: "Erstellt mit",
+    role: "Rolle",
+    year: "Jahr",
+    open_live: "Live-Site öffnen ↗",
+    back_to_projects: "← Zurück zu allen Projekten",
+    next: "Nächstes:",
   },
 };
 

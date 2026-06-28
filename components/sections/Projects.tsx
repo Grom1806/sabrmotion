@@ -2,9 +2,12 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { projects } from "@/lib/projects";
+import { getProjects } from "@/lib/projects";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Projects() {
+  const { lang, t } = useLanguage();
+  const projects = getProjects(lang);
   return (
     <section
       id="projects"
@@ -31,7 +34,7 @@ export default function Projects() {
               transition={{ duration: 0.5 }}
               className="section-eyebrow"
             >
-              Portfolio
+              {t.projects.eyebrow}
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -47,7 +50,7 @@ export default function Projects() {
                 lineHeight: 1.1,
               }}
             >
-              VIEW MY <span style={{ color: "var(--accent)" }}>PROJECTS</span>
+              {t.projects.headline1} <span style={{ color: "var(--accent)" }}>{t.projects.headline2}</span>
             </motion.h2>
           </div>
 
@@ -62,7 +65,7 @@ export default function Projects() {
             className="btn-outline"
             style={{ fontSize: "0.8rem", padding: "0.6rem 1.5rem" }}
           >
-            All on GitHub →
+            {t.projects.all_github}
           </motion.a>
         </div>
 
@@ -174,7 +177,7 @@ export default function Projects() {
                       color: "var(--accent)",
                     }}
                   >
-                    <span>View project</span>
+                    <span>{t.projects.view_project}</span>
                     <span>→</span>
                   </div>
                 </div>
