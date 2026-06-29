@@ -61,6 +61,7 @@ const ru: Dict = {
       { num: "01", title: "Telegram-боты под ключ", description: "Боты для продаж, приёма заявок и оплат, автоворонок и рассылок. Пишу на Node.js — без ограничений конструкторов. Подключаю эквайринг, CRM и базы данных, чтобы бот не просто отвечал, а вёл клиента к покупке." },
       { num: "02", title: "Сайты с нуля", description: "Разрабатываю сайты под задачу, а не из готовых блоков. Лендинги, многостраничники, сайты с интеграциями. Чистый код, нормальная скорость, удобство для клиента и для вас на стороне управления." },
       { num: "03", title: "Виджет-боты для сайтов", description: "Чат-боты и виджеты, которые встраиваются на сайт и работают на конверсию: отвечают, собирают контакты, доводят посетителя до заявки или оплаты. При необходимости усиливаю их ИИ." },
+      { num: "04", title: "Веб-приложения и ИИ-виджеты", description: "Кастомные веб-приложения и ИИ-виджеты, встроенные прямо в ваш сайт — интерактивные инструменты, дашборды и умные ассистенты, которые понимают клиента и отвечают в реальном времени. С интеграцией ваших данных и бэкенда." },
     ],
   },
   process: {
@@ -156,6 +157,7 @@ const en: Dict = {
       { num: "01", title: "Telegram Bots, End-to-End", description: "Sales bots, lead capture and payment bots, auto-funnels and broadcast campaigns. Built on Node.js — unconstrained by no-code builders. I connect payment gateways, CRMs and databases so your bot doesn't just respond, it guides customers all the way to purchase." },
       { num: "02", title: "Websites from Scratch", description: "I develop websites tailored to your goals, not from pre-made templates. Landing pages, multi-page sites, sites with integrations. Clean code, solid performance, easy for your customers to use and simple for you to manage." },
       { num: "03", title: "Website Widget Bots", description: "Chatbots and widgets embedded directly in your site, built to convert: they answer questions, collect contacts and guide visitors through to a lead or payment. I can enhance them with AI where it adds real value." },
+      { num: "04", title: "Web Apps & AI Widgets", description: "Custom web apps and AI-powered widgets embedded right into your site — interactive tools, dashboards and smart assistants that understand your customers and respond in real time. Integrated with your data and backend." },
     ],
   },
   process: {
@@ -251,6 +253,7 @@ const de: Dict = {
       { num: "01", title: "Telegram-Bots schlüsselfertig", description: "Verkaufs-Bots, Anfrage- und Zahlungs-Bots, automatische Funnels und Newsletter. Entwickelt in Node.js — ohne Einschränkungen von Baukastensystemen. Ich verbinde Zahlungsdienstleister, CRMs und Datenbanken, damit Ihr Bot Kunden bis zum Kaufabschluss begleitet." },
       { num: "02", title: "Websites von Grund auf", description: "Ich entwickle Websites, die auf Ihre Ziele zugeschnitten sind — nicht aus Vorlagen. Landingpages, mehrseitige Websites, Websites mit Integrationen. Sauberer Code, solide Performance, nutzerfreundlich für Ihre Kunden und einfach für Sie zu verwalten." },
       { num: "03", title: "Website-Widget-Bots", description: "Chatbots und Widgets, die direkt in Ihre Website eingebettet werden und auf Conversion ausgelegt sind: Fragen beantworten, Kontakte erfassen, Besucher bis zur Anfrage oder Zahlung begleiten. Bei Bedarf ergänze ich sie mit KI." },
+      { num: "04", title: "Web-Apps & KI-Widgets", description: "Individuelle Web-Apps und KI-gestützte Widgets, direkt in Ihre Website eingebettet — interaktive Tools, Dashboards und smarte Assistenten, die Ihre Kunden verstehen und in Echtzeit antworten. Integriert mit Ihren Daten und Ihrem Backend." },
     ],
   },
   process: {
